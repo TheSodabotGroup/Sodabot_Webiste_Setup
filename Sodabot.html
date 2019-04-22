@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<title>Sodabot: Putting the Beverage Experience in Balance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body style="background-color:  #ffe6cc; max-width: 1080px; margin: auto; padding-bottom: 50px;" >
+
+<style>
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centeredImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto; 
+  height: 30%; 
+  width: 65%;
+}
+
+.centeredTitle {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 42px;
+  font-family: Courier;
+  font-weight: bold;
+  text-shadow: -1px 0 #8b4f58, 0 1px #8b4f58, 1px 0 #8b4f58, 0 -1px #8b4f58;
+}
+
+.centeredSubTitle {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: #ccefff;
+}
+
+.hyperImage
+{
+  opacity: 0.5
+}
+.hyperImage:hover
+{
+  opacity: 1.0
+}
+
+</style>
+
+
+<div class = "container">
+  <img src="images/crest.png" alt = "Crest" style="  display: block;margin: auto;height: 45%; 
+  width: 45%;">
+  <img src="images/blueRibbon.png" alt = "blueRibbon" class="centeredImage">
+  <div class="centeredTitle" >SODABOT</div>
+  <div class="centeredSubTitle" >The Inexpensive, Highly Customizable, Snack Delivering Household Robot
+</div>
+</div>
+
+<div>
+  <h2 style = "max-width: 500px; margin: auto;text-align:center; color: #8b4f58; ">Welcome to the page of the next big thing in the beverage industry</h2>
+</div>>
+<div class="w3-row" style=" background-color: #578198">
+  <a href="javascript:void(0)" onclick="openCity(event, 'Our Mission');">
+    <div class="w3-quarter tablink w3-hover-light-grey w3-padding" style = "border-bottom : 5px solid white">Our Mission</div>
+  </a>
+  <a href="javascript:void(0)" onclick="openCity(event, 'Making of Sodabot');">
+    <div class="w3-quarter tablink w3-hover-light-grey w3-padding" style = "border-bottom : 5px solid white">The Making of Sodabot</div>
+  </a>
+  <a href="javascript:void(0)" onclick="openCity(event, 'Running Sodabot');">
+    <div class="w3-quarter tablink w3-hover-light-grey w3-padding" style = "border-bottom : 5px solid white">Running Sodabot</div>
+  </a>
+  <a href="javascript:void(0)" onclick="openCity(event, 'Graphs');">
+    <div class="w3-quarter tablink w3-hover-light-grey w3-padding"style = "border-bottom : 5px solid white">The Graphs of Sodabot</div>
+  </a>
+</div>
+
+
+<!-- <div style="margin-left:130px"> -->
+
+  <div id="Our Mission" class="w3-container city w3-animate-opacity">
+    <h2 style = "color: #8b4f58">We Proudly Present: Sodabot !</h2>
+    <p> Our objective is to make autonomous household robots less wide and more vertical. With control capabilities that allow us to balance vertically structured robots on two wheels, we are capable of achieving tasks with less space on the ground.</p>
+    <p>Sodabot is the first iterration towards the realization of that task. With its unique vertical structure, it can house a can of cold refreshing beverage to be delivered to the comfort of your couch !.</p>
+    <p>Now, even skipping the halftime commercials is no longer necessary. The reason ? Sodabot !</p>
+  </div>
+
+  <div id="Making of Sodabot" class="w3-container city w3-animate-opacity" style="display:none">
+    <h2 style = "color: #8b4f58">The Making of Sodabot</h2>
+    <p>Sodabot was contructed on an acrylic plastic and aluminum chasis. It consists of a lower and a top chasis. The lower chasis houses the motors and the 12 volt battery that powers up Sodabot. The upper chasis house an RPLidar A2 which provides the necessary sensor reading for Sodabot to map its surrounding and localize itself within it.</p> 
+    <p>Sodabot runs on.</p>
+  </div>
+
+  <div id="Running Sodabot" class="w3-container city w3-animate-opacity" style="display:none">
+    <h2 style = "color: #8b4f58">Running Sodabot</h2>
+    <p>Sodabot is operated by a Beaglebon Green and a Raspberry PI 3 chip. The two chips communicate over the <a href="https://github.com/lcm-proj/lcm" style="color: #004b87; text-decoration:none; font-weight: bold;">Lightweight Communications and Marshalling </a> system which handles the publishing and the reception of data acrross the chips as well towards the remotely operating laptop</p>
+  </div>
+
+  <div id="Graphs" class="w3-container city w3-animate-opacity" style="display:none">
+    <h2 style = "color: #8b4f58">The Graphs that Define Sodabot</h2>
+    <p>In it's very core, Sodabot is a work of engineering that performs state-of-the-art SLAM fitted to accomodate for its Balancing action.</p>
+    <p>Sodabot is fitted to account for the balancing effort and the noise it induces on the Lidar readings. It runs a projection logic to project the Lidar data it receives into their correct positions in the 2D plane that it localizes itself in.</p>
+  </div>
+
+  <footer style = "font-style:italic">
+    <p style="text-align:center; background-color: #8b4f58">Sodabot is a project brought by   <a href="https://github.com/TheSodabotGroup" style="color: #004b87; text-decoration:none; font-weight: bold;">THE SODABOT GROUP</a>    at the Univeristy of Michigan. Codes and CAD can be found on <a href="https://github.com/TheSodabotGroup/Sodabot_T8" style="color: #004b87; text-decoration:none; font-weight: bold;">Our GitHub Page</a></p>
+  <a href="https://robotics.umich.edu/"><img src="images/robotics-social-blue.jpg" alt = "UMRobotics" class = "hyperImage" style="  position: relative; display: block;margin: auto; height: 7%; width: 7%;"></a>  
+  </footer>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].style.borderBottom = "5px solid white";
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.firstElementChild.style.borderColor = "#8b4f58";
+}
+</script>
+
+
+<!-- <script>
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-border-red";
+}
+</script>
+ -->
+
+</body>
+</html>
+
+<!-- https://github.com/lcm-proj/lcm -->

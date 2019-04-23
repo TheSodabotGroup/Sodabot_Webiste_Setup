@@ -243,24 +243,6 @@ int8_t Exploration::executeExploringMap(bool initialize)
     *           explored more of the map.
     *       -- You will likely be able to see the frontier before actually reaching the end of the path leading to it.
     */
-    if (initialize){
-        frontiers_ = find_map_frontiers(currentMap_, currentPose_, 0.35);
-        if(!frontiers_.empty()){
-            planner_.setMap(currentMap_);
-            currentPath_ = plan_path_to_frontier(frontiers_, currentPose_, currentMap_, planner_);
-        }
-    }else{
-        pose_xyt_t tmp_pose = currentPath_.path.back();
-        double distance = distance_between_points(Point<float>(tmp_pose.x, tmp_pose.y), 
-                                                  Point<float>(currentPose_.x, currentPose_.y));
-        if(distance <= 0.03){
-            frontiers_ = find_map_frontiers(currentMap_, currentPose_, 0.35);
-            if(!frontiers_.empty()){
-                planner_.setMap(currentMap_);
-                currentPath_ = plan_path_to_frontier(frontiers_, currentPose_, currentMap_, planner_);
-            }
-        }
-    }
     
     /////////////////////////////// End student code ///////////////////////////////
     
@@ -319,10 +301,8 @@ int8_t Exploration::executeReturningHome(bool initialize)
     *       (1) dist(currentPose_, targetPose_) < kReachedPositionThreshold  :  reached the home pose
     *       (2) currentPath_.path_length > 1  :  currently following a path to the home pose
     */
-    if(initialize){
-        planner_.setMap(currentMap_);
-        currentPath_ = planner_.planPath(currentPose_, homePose_);
-    }
+    
+
 
     /////////////////////////////// End student code ///////////////////////////////
     
@@ -337,7 +317,7 @@ int8_t Exploration::executeReturningHome(bool initialize)
     // If we're within the threshold of home, then we're done.
     if(distToHome <= kReachedPositionThreshold)
     {
-        status.status = exploration_status_t::STATE_COMPLETED_EXPLORATION;
+        status.status = exploration_status_t::STATUS_COMPLETE;
     }
     // Otherwise, if there's a path, then keep following it
     else if(currentPath_.path.size() > 1)
@@ -357,12 +337,9 @@ int8_t Exploration::executeReturningHome(bool initialize)
     {
         return exploration_status_t::STATE_RETURNING_HOME;
     }
-    else if(status.status == exploration_status_t::STATUS_FAILED)
+    else // if(status.status == exploration_status_t::STATUS_FAILED)
     {
         return exploration_status_t::STATE_FAILED_EXPLORATION;
-    }
-    else{
-        return exploration_status_t::STATE_COMPLETED_EXPLORATION;
     }
 }
 
